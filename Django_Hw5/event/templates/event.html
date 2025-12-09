@@ -1,0 +1,12 @@
+{% extends "form_layout.html" %}
+
+{% block content %}
+
+<h1>{{ event.name }}</h1>
+<h3>{{ event.date }}</h3>
+
+<h2>Participants:</h2>
+{% for x in event.participants %}
+<h3>{{ x.email }}<h3>
+{% endfor %}
+{% endblock content %}

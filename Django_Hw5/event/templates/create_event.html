@@ -1,0 +1,21 @@
+{% extends "form_layout.html" %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+
+    <h2>Event</h2>
+    {{ event_form.as_p }}
+
+    <h2>Participants</h2>
+    {{ participant_formset.management_form }}
+
+    {% for form in participant_formset %}
+        {{ form.as_p }}
+    {% endfor %}
+
+    <a class="btn" href="?forms={{ next_count }}">Add another participant</a>
+    <button type="submit">Submit</button>
+</form>
+
+{% endblock content %}
